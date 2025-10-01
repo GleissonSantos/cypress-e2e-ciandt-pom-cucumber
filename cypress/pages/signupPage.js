@@ -9,7 +9,7 @@ export default {
         signupButton: 'button[data-testid="cadastrar"]',
         signupTitle: '.font-robot',
         sucessMessage: '.alert-link',
-        errorInvalidEmailMessage: '[class="alert alert-secondary alert-dismissible"]'
+        errorMessage: '.alert-secondary'
     },
 
     acessUserSignupPage() {
@@ -42,8 +42,7 @@ export default {
     },
 
     errorMessageInvalidEmail() {
-        cy.get(this.elements.signupButton).should('be.visible').click();
-        cy.get(this.elements.errorInvalidEmailMessage).should('have.text', '×Email deve ser um email válido')
+        cy.get(this.elements.errorMessage).should('be.visible').and('contain.text', 'Email deve ser um email válido')
     },
 
 
