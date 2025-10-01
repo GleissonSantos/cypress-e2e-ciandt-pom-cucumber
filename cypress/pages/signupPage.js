@@ -6,14 +6,15 @@ export default {
         emailInput: 'input[data-testid="email"]',
         passwordInput: 'input[data-testid="password"]',
         adminCheckbox: '[id="administrador"]',
-        registerButton: 'button[data-testid="cadastrar"]',
-        registerTitle: '.font-robot',
-        sucessMessage: '.alert-link'
+        signupButton: 'button[data-testid="cadastrar"]',
+        signupTitle: '.font-robot',
+        sucessMessage: '.alert-link',
+        errorInvalidEmailMessage: '[class="alert alert-secondary alert-dismissible"]'
     },
 
-    acessUserRegisterPage() {
+    acessUserSignupPage() {
         cy.visit('/cadastrarusuarios');
-        cy.get(this.elements.registerTitle).should('have.text', 'Cadastro')
+        cy.get(this.elements.signupTitle).should('have.text', 'Cadastro')
     },
 
     fillName(name) {
@@ -28,43 +29,42 @@ export default {
         cy.get(this.elements.passwordInput).should('be.visible').type(password)
     },
 
-    fillEmailAndPassword(email, password) {
-        this.fillEmail(email);
-        this.fillPassword(password);
-    },
-
     checkAdmin() {
         cy.get(this.elements.adminCheckbox).check()
     },
 
-    submitRegister() {
-        cy.get(this.elements.registerButton).should('be.visible').click();
-        cy.get(this.elements.sucessMessage).should('have.text', 'Cadastro realizado com sucesso')
+    clickSubmitSignupForm() {
+        cy.get(this.elements.signupButton).should('be.visible').click();
     },  
 
-    validateSuccessRegisterMessage() {
+    validateSuccessSignupMessage() {
         cy.get(this.elements.sucessMessage).should('have.text', 'Cadastro realizado com sucesso')
     },
 
+    errorMessageInvalidEmail() {
+        cy.get(this.elements.signupButton).should('be.visible').click();
+        cy.get(this.elements.errorInvalidEmailMessage).should('have.text', '×Email deve ser um email válido')
+    },
 
-    registerRegularUserSuccess(name, email, password, isAdmin = false) {
-        this.acessUserRegisterPage();
+
+    signupRegularUserSuccess(name, email, password, isAdmin = false) {
+        this.acessUserSignupPage();
         this.fillName(name);
         this.fillEmail(email);
         this.fillPassword(password);
-        this.submitRegister();
-        this.validateSuccessRegisterMessage();
+        this.clickSubmitSignupForm();
+        this.validateSuccessSignupMessage();
         
     },
 
-    registerAdminUserSuccess(name, email, password) {
-        this.acessUserRegisterPage();
+    signupAdminUserSuccess(name, email, password) {
+        this.acessUserSignupPage();
         this.fillName(name);
         this.fillEmail(email);
         this.fillPassword(password);
         this.checkAdmin();
-        this.submitRegister();
-        this.validateSuccessRegisterMessage();
+        this.clickSubmitSignupForm();
+        this.validateSuccessSignupMessage();
     }
 
 }
