@@ -1,75 +1,114 @@
 # Cypress E2E Testing - CI&T POM Cucumber
 
-## 📋 Descrição
-Projeto de testes automatizados E2E usando Cypress com Cucumber (BDD) e Page Object Model (POM) para a aplicação ServeRest.
+[![CI/CD Pipeline](https://github.com/GleissonSantos/cypress-e2e-ciandt-pom-cucumber/actions/workflows/pipeline-actions.yml/badge.svg)](https://github.com/GleissonSantos/cypress-e2e-ciandt-pom-cucumber/actions/workflows/pipeline-actions.yml)
 
-## 🛠️ Tecnologias Utilizadas
-- **Cypress** - Framework de testes E2E
-- **Cucumber** - Ferramenta BDD para escrita de cenários
-- **Faker.js** - Geração de dados de teste
-- **JavaScript ES6+** - Linguagem de programação
-- **Page Object Model** - Padrão de design para organização do código
+## 📋 Description
+End-to-end automated testing project using Cypress with Cucumber (BDD) and Page Object Model (POM) for the ServeRest application.
 
-## 📁 Estrutura do Projeto
+## 🛠️ Technologies Used
+- **Cypress** - E2E testing framework
+- **Cucumber** - BDD tool for scenario writing
+- **Faker.js** - Test data generation
+- **JavaScript ES6+** - Programming language
+- **Page Object Model** - Design pattern for code organization
+- **GitHub Actions** - CI/CD pipeline
+
+## 📁 Project Structure
 ```
 cypress/
 ├── e2e/
-│   ├── features/          # Arquivos .feature (Gherkin/BDD)
-│   └── step_definitions/  # Implementação dos steps
-├── fixtures/              # Dados de teste e geradores
+│   ├── features/          # .feature files (Gherkin/BDD)
+│   └── step_definitions/  # Step implementations
+├── fixtures/              # Test data and generators
 ├── pages/                 # Page Objects (POM)
-├── screenshots/           # Screenshots dos testes
-├── support/              # Configurações e comandos customizados
-└── utils/                # Utilitários (em desenvolvimento)
+├── screenshots/           # Test screenshots
+├── support/              # Configurations and custom commands
+└── utils/                # Utilities (in development)
 ```
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-### Pré-requisitos
-- Node.js (versão 14 ou superior)
-- npm ou yarn
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm or yarn
 
-### Instalação
+### Installation
 ```bash
 npm install
 ```
 
-### Execução dos Testes
+### Test Execution
 ```bash
-# Modo interativo (Cypress Test Runner)
+# Interactive mode (Cypress Test Runner)
 npx cypress open
 
-# Modo headless
+# Headless mode
 npx cypress run
 
-# Executar features específicas
+# Run specific features
 npx cypress run --spec "cypress/e2e/features/login.feature"
+
+# Run by tags
+npx cypress run --env tags="@login"
 ```
 
-## 📝 Funcionalidades Testadas
-- ✅ Login de usuários (regular e admin)
-- ✅ Cadastro de novos usuários
-- 🚧 Gerenciamento de produtos (em desenvolvimento)
+## 📝 Features Tested
+- ✅ User login (regular and admin)
+- ✅ User signup/registration
+- ✅ Product management (basic CRUD)
+- ✅ Form validation (positive and negative cases)
 
-## 🧪 Cenários de Teste
+## 🧪 Test Scenarios
+
 ### Login
-- Login com usuário regular válido
-- Login com usuário admin válido
+- Login as regular user with valid credentials
+- Login as admin user with valid credentials  
+- Login with invalid credentials (negative test)
 
-### Registro
-- Cadastro de usuário regular com sucesso
-- Cadastro de usuário admin com sucesso
+### Signup
+- Sign up new regular user successfully
+- Sign up new admin user successfully
+- Sign up with invalid email format (negative test)
 
-## 🎯 Padrões Implementados
-- **Page Object Model (POM)** - Encapsulamento de elementos e ações das páginas
-- **BDD com Cucumber** - Cenários escritos em linguagem natural
-- **Data Generator** - Geração dinâmica de dados de teste
-- **Separação de Responsabilidades** - Código organizado e modular
+### Product Management
+- Register new product as admin user
+- Product form validation
 
-## 📊 Próximas Melhorias
-- [ ] Implementar cenários de teste negativos
-- [ ] Configurar CI/CD
-- [ ] Implementar relatórios de teste
-- [ ] Adicionar mais validações e assertions
+## 🎯 Design Patterns Implemented
+- **Page Object Model (POM)** - Encapsulation of page elements and actions
+- **BDD with Cucumber** - Scenarios written in natural language
+- **Data Generator Pattern** - Dynamic test data generation
+- **Separation of Concerns** - Organized and modular code structure
+- **Factory Pattern** - Test data creation
 
-**Desenvolvido por Gleisson Santos**
+## 🏗️ Architecture Features
+- **Centralized selectors** in Page Objects
+- **Reusable step definitions** with Cucumber
+- **Dynamic test data** with Faker.js
+- **CI/CD pipeline** with GitHub Actions
+- **Conventional commits** for better git history
+- **Cross-browser testing** support
+
+## 📊 CI/CD Pipeline
+- Automated testing on push/pull requests
+- Node.js 20 environment
+- Cypress execution in headless mode
+- Test results and artifacts storage
+
+## 📈 Future Improvements
+- [x] ~~Implement negative test scenarios~~
+- [x] ~~Configure CI/CD pipeline~~
+- [ ] Implement test reporting (Allure/Mochawesome)
+
+
+## 🤝 Contributing
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'feat: add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+This project is licensed under the MIT License.
+
+**Developed by Gleisson Santos**
