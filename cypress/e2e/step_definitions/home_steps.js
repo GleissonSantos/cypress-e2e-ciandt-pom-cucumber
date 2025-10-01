@@ -14,7 +14,7 @@ let testData = {};
 //===== GIVEN =====
 
 Given ('I am on the registration page', () => {
-    homePage.visit("/cadastrarprodutos")
+    homePage.navigateToRegistrationProductPage();
 });
 
 Given('I am on the home page with a regular user', () => {
