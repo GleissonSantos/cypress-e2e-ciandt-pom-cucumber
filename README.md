@@ -58,21 +58,35 @@ npx cypress run --env tags="@login"
 - ✅ Product management (basic CRUD)
 - ✅ Form validation (positive and negative cases)
 
-## 🧪 Test Scenarios
+## 🧪 Test Scenarios Covered
 
-### Login
-- Login as regular user with valid credentials
-- Login as admin user with valid credentials  
-- Login with invalid credentials (negative test)
+### 🔐 User Authentication (Login)
+| Scenario | Description | Expected Result | Tags |
+|----------|-------------|-----------------|------|
+| **Valid Regular User Login** | Login with valid credentials for a regular user | Redirect to regular home page |
+| **Valid Admin User Login** | Login with valid credentials for an admin user | Redirect to admin home page |
+| **Invalid Credentials Login** | Login attempt with invalid credentials | Display error message for invalid credentials | 
 
-### Signup
-- Sign up new regular user successfully
-- Sign up new admin user successfully
-- Sign up with invalid email format (negative test)
+### 👤 User Registration (Signup)
+| Scenario | Description | Expected Result | Tags |
+|----------|-------------|-----------------|------|
+| **Regular User Signup** | Create new regular user account with valid data | Success message displayed | 
+| **Admin User Signup** | Create new admin user account with valid data | Success message displayed | - |
+| **Invalid Email Format** | Signup attempt with malformed email | Display email format validation error | 
 
-### Product Management
-- Register new product as admin user
-- Product form validation
+### 📦 Product Management
+| Scenario | Description | Expected Result | Tags |
+|----------|-------------|-----------------|------|
+| **Product Registration** | Register new product as admin user | Product successfully listed on products page | 
+| **Product Form Validation** | Validate product form fields | Proper validation messages displayed | 
+
+### 🔍 Test Coverage Summary
+- **Total Scenarios**: 7 test scenarios
+- **Positive Tests**: 4 scenarios (57%)
+- **Negative Tests**: 3 scenarios (43%)
+- **User Roles Covered**: Regular User, Admin User
+- **Features Covered**: Authentication, Registration, Product Management
+- **Validation Tests**: Email format, Login credentials, Form validation
 
 ## 🎯 Design Patterns Implemented
 - **Page Object Model (POM)** - Encapsulation of page elements and actions
