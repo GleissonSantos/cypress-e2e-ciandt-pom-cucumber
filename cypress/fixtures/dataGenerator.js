@@ -11,19 +11,27 @@ class DataGenerator {
     };
   }
 
-  static generateLoginCredentials() {
+  static generateInvalidLoginUser() {
     return {
-      email: faker.internet.email(),
+      email: "teste@123.com",
+      password: "123" 
+    };
+  } 
+
+  static generateInvalidEmailUser() {
+    return {
+      name: faker.person.fullName(),
+      email: "teste@123",
       password: faker.internet.password({ length: 8, memorable: true })
     };
-  }
+  } 
 
-  static generateProduct() {
+  static generateValidProduct() {
     return {
       name: faker.commerce.productName(),
-      preco: faker.commerce.price({ min: 10, max: 1000, dec: 0 }),
-      descricao: faker.commerce.productDescription(),
-      quantidade: faker.number.int({ min: 1, max: 100 })
+      price: faker.commerce.price({ min: 10, max: 1000, dec: 0 }),
+      description: faker.commerce.productDescription(),
+      quantity: faker.number.int({ min: 1, max: 100 })
     };
   }
 }

@@ -19,6 +19,10 @@ export default {
         cy.visit('/home')
     },
 
+    navigateToRegistrationProductPage() {
+        cy.visit('/cadastrarprodutos')
+    },
+
     validadeRegularUserLogin() {
         cy.get(this.elements.listaDeCompras).should('be.visible').and('contain.text', 'Lista de Compras')
         cy.get(this.elements.carrinho).should('be.visible').and('contain.text', 'Carrinho')
@@ -32,13 +36,18 @@ export default {
         cy.get(this.elements.linkRelatorios).should('be.visible').and('contain.text', 'Relatórios')
     },
 
-    acessRegisterProduct() {
+    clickRegisterProduct() {
         cy.get(this.elements.cadastrarProdutos).click()
     },
 
     logout() {
         cy.get(this.elements.LogoutButton).contains('Logout').click()
-    }
+    },
+
+    acessRegisterProductAsAdmin() {
+        this.validadeAdminUserLogin()
+        this.clickRegisterProduct()
+    },
 
 
 }

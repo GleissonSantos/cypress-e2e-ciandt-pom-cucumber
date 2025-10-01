@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 import loginPage from '../../pages/loginPage.js';
-import registerPage from '../../pages/registerPage.js';
+import signupPage from '../../pages/signupPage.js';
 import dataGenerator from '../../fixtures/dataGenerator.js';
 import homePage from '../../pages/homePage.js';
 
@@ -25,19 +25,25 @@ When('I fill in the password {string}', () => {
 
 When('I have a registered regular user', () => {
     testData = dataGenerator.generateValidUser();
-    registerPage.registerRegularUserSuccess(testData.name, testData.email, testData.password);
+    signupPage.signupRegularUserSuccess(testData.name, testData.email, testData.password);
     loginPage.acessLoginPage();
     loginPage.fillEmail(testData.email);
     loginPage.fillPassword(testData.password);
-});
+})
 
 When('I have a registered admin user', () => {
     testData = dataGenerator.generateValidUser();
-    registerPage.registerAdminUserSuccess(testData.name, testData.email, testData.password);
+    signupPage.signupAdminUserSuccess(testData.name, testData.email, testData.password);
     loginPage.acessLoginPage();
     loginPage.fillEmail(testData.email);
     loginPage.fillPassword(testData.password);
-});
+})
+
+When('I fill in the login form with invalid credentials', () => {
+  testData = dataGenerator.generateInvalidLoginUser();
+  loginPage.fillEmail(testData.email);
+  loginPage.fillPassword(testData.password);
+})
 
 // ===== AND =====
 
@@ -57,25 +63,7 @@ Then('I should be redirected to the admin home page', () => {
   homePage.validadeAdminUserLogin()
 })
 
-
-// ===== COMPOSE STEPS =====
-When('Im already logged in the application as a regular user', (email, password) => {
-    testData = dataGenerator.generateValidUser(email, password);
-    loginPage.regularUserLogin(email, password)
-    homePage.validadeRegularUserLogin()
+Then('I should see an error message indicating invalid credentials', () => {
+  loginPage.errorMessage()
 })
 
-When('Im already logged in the application as a admin user', (email, password) => {
-    testData = dataGenerator.generateValidUser(email, password);
-    loginPage.adminUserLogin(email, password)
-    homePage.validadeAdminUserLogin()
-})
-
-// ===== VALIDATIONS =====
-Then('o campo email deve estar destacado em vermelho', () => {
-  cy.get('[data-testid="email"]').should('have.class', 'is-invalid')
-})
-
-Then('o campo senha deve estar destacado em vermelho', () => {
-  cy.get('[data-testid="senha"]').should('have.class', 'is-invalid')
-})
