@@ -5,7 +5,7 @@ import loginPage from '../../pages/loginPage.js';
 import signupPage from '../../pages/signupPage.js'; 
 import registerProductPage from '../../pages/registerProductPage.js';
 
-// Variable to store test data across steps
+
 let testData = {};
 
 //===== GIVEN =====
@@ -63,14 +63,13 @@ When('Im on the registration page as an admin user', () => {
     loginPage.fillPassword(testData.password);
     loginPage.submitLogin();
     homePage.acessRegisterProductAsAdmin();
-    // Apenas navegar para a página, não registrar ainda
+   
 }); 
 
 
 
 //===== THEN =====
 Then('the product should be registered successfully', () => {
-    // Verify that the product was registered successfully using the stored testData
     cy.contains(testData.name).should('be.visible');
     cy.contains(testData.price).should('be.visible');
     cy.contains(testData.description).should('be.visible');

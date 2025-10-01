@@ -6,7 +6,6 @@ import loginPage from '../../pages/loginPage.js';
 import dataGenerator from '../../fixtures/dataGenerator.js';   
 
 
-// Variable to store test data across steps
 let testData = {};
 
 

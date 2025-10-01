@@ -2,7 +2,6 @@
 
 export default {
 
-    // selector centralization
     elements: {
         emailInput: 'input[data-testid="email"]',
         passwordInput: 'input[data-testid="senha"]',

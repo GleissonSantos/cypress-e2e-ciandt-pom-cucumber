@@ -2,7 +2,7 @@
 
 
 export default {
-    // selector centralization
+
     elements: {
         productNameInput: '[data-testid="nome"]',
         productPriceInput: '[data-testid="preco"]',

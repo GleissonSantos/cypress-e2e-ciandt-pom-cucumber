@@ -5,7 +5,7 @@ import dataGenerator from '../../fixtures/dataGenerator.js';
 import homePage from '../../pages/homePage.js';
 
 
-// Variable to store test data across steps
+
 let testData = {};
 
 // ===== GIVEN =====
