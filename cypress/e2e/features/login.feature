@@ -19,3 +19,8 @@ Feature: User Login
         When I click the login button
         Then I should be redirected to the admin home page
 
+    Scenario: Login with invalid credentials
+        When I fill in the login form with invalid credentials
+        And I click the login button
+        Then I should see an error message indicating invalid credentials
+

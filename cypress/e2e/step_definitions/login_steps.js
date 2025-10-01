@@ -67,18 +67,3 @@ Then('I should see an error message indicating invalid credentials', () => {
   loginPage.errorMessage()
 })
 
-
-// ===== COMPOSE STEPS =====
-When('Im already logged in the application as a regular user', (email, password) => {
-    testData = dataGenerator.generateValidUser(email, password);
-    loginPage.regularUserLogin(email, password)
-    homePage.validadeRegularUserLogin()
-})
-
-When('Im already logged in the application as a admin user', (email, password) => {
-    testData = dataGenerator.generateValidUser(email, password);
-    loginPage.adminUserLogin(email, password)
-    homePage.validadeAdminUserLogin()
-})
-
-
