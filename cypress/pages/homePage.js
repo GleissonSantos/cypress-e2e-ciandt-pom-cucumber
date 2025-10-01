@@ -14,7 +14,6 @@ export default {
         LogoutButton: '[data-testid="logout"]'
     },
 
-
     navigateToHomePage() {
         cy.visit('/home')
     },

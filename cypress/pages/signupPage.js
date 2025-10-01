@@ -1,6 +1,5 @@
 export default {
 
-    // selector centralization
     elements: {
         nameInput: 'input[data-testid="nome"]',
         emailInput: 'input[data-testid="email"]',

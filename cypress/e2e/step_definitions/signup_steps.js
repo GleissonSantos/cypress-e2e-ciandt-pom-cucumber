@@ -3,7 +3,6 @@ import signupPage from '../../pages/signupPage.js';
 import dataGenerator from '../../fixtures/dataGenerator.js';
 
 
-// Variable to store test data across steps
 let testData = {};
 
 // ===== GIVEN =====
