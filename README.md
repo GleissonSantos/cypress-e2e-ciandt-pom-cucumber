@@ -1,4 +1,4 @@
-# Cypress E2E Testing - CI&T POM Cucumber
+# Cypress E2E Testing - POM + Cucumber
 
 [![CI/CD Pipeline](https://github.com/GleissonSantos/cypress-e2e-ciandt-pom-cucumber/actions/workflows/pipeline-actions.yml/badge.svg)](https://github.com/GleissonSantos/cypress-e2e-ciandt-pom-cucumber/actions/workflows/pipeline-actions.yml)
 

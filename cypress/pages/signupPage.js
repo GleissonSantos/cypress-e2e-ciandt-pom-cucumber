@@ -44,8 +44,7 @@ export default {
         cy.get(this.elements.errorMessage).should('be.visible').and('contain.text', 'Email deve ser um email válido')
     },
 
-
-    signupRegularUserSuccess(name, email, password, isAdmin = false) {
+    signupRegularUserSuccess(name, email, password) {
         this.acessUserSignupPage();
         this.fillName(name);
         this.fillEmail(email);
