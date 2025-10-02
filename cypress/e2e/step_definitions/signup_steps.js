@@ -39,6 +39,7 @@ When('I fill in the signup form with an invalid email format', () => {
     signupPage.fillPassword(testData.password);
 })
 
+
 // ===== THEN =====
 Then('I should see a success message indicating the user was signed up successfully', () => {
     signupPage.validateSuccessSignupMessage();
@@ -47,7 +48,6 @@ Then('I should see a success message indicating the user was signed up successfu
 Then('I should see an error message indicating the email format is invalid', () => {
     signupPage.errorMessageInvalidEmail();
 })
-
 
 
 
